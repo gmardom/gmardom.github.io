@@ -1,7 +1,3 @@
-# My website 👌
+# My website?
 
-## Running locally
-
-```console
-$ hugo server -D
-```
+Currently this repo serves as a alias for my github profile.
