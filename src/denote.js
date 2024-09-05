@@ -1,4 +1,4 @@
-import { BLOG_DIRECTORY, BLOG_FILE } from "./lib.js";
+import { BLOG_DIRECTORY, BLOG_FILE, REPO_PATH } from "./lib.js";
 
 /** 
  * Punctionation that is removed from file names.
@@ -172,7 +172,7 @@ export async function fetchPost(identifier) {
     }
 
     const filename = denoteFilenameFromFrontmatter(meta);
-    const res = await fetch(`/${BLOG_DIRECTORY}/${filename}`);
+    const res = await fetch(`${REPO_PATH}/${filename}`);
     if (!res.ok) {
         const message = `Could not fetch post with id: ${identifier}: ${res.status} ${res.statusText}`;
         console.error(message);
