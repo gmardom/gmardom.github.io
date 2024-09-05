@@ -1,0 +1,20 @@
+{
+    "name": "react-test",
+    "type": "module",
+    "scripts": {
+        "build": "node bin/build.js",
+        "dev": "node bin/dev.js",
+        "serve": "node bin/serve.js",
+        "update": "node bin/update.js"
+    },
+    "dependencies": {
+        "react": "^18.3.1",
+        "react-dom": "^18.3.1"
+    },
+    "devDependencies": {
+        "esbuild": "^0.23.0",
+        "http-server": "^14.1.1",
+        "markdown-it": "^14.1.0",
+        "sass": "^1.77.8"
+    }
+}

@@ -1,0 +1,8 @@
+User-agent: *
+Disallow: 
+
+User-agent: *
+Disallow: /content
+Disallow: /static
+
+Sitemap: https://gmardom.githup.io/sitemap.xml
