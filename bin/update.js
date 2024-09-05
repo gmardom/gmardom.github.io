@@ -51,7 +51,7 @@ function updateSitemapXML() {
 }
 
 function updateRssFeed() {
-    const dest = "index.xml";
+    const dest = "blog.xml";
 
     const title = "<title>gMarDom's Blog posts</title>";
     const link = `<link>${SITE_URL}</link>`;
