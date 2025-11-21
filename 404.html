@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dominik Marcinowski</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/svg" href="/static/logo.svg">
+    <link rel="preload" href="/static/EBGaramond-Regular.ttf" as="font" type="font/ttf">
+    <link rel="stylesheet" href="/static/style.css">
+  </head>
+  <body class="content-grid">
+    <header>
+      <h1>
+        <span id="icon"><noscript>😕</noscript></span>
+        404 &ndash; Page Not Found
+      </h1>
+      <script>
+        const emojis = ["🔍", "😕", "🤷", "😅", "🙈", "🧭", "🛠️", "💻", "🐾", "🫪"];
+        document.getElementById("icon").textContent = emojis[Math.floor(Math.random() * emojis.length)];
+      </script>
+      <nav id="websiteNavigation">
+        <a href="/" target="_parent">Home</a>
+        <a href="/projects" target="_parent">Projects</a>
+      </nav>
+    </header>
+
+    <main id="content">
+      <p>Oops &ndash; the page you're looking for doesn't exist.</p>
+      <p><code id="location"></code></p>
+      <script>
+        document.getElementById("location").innerHTML = window.location.pathname;
+      </script>
+    </main>
+
+    <footer id="copyright">
+      &copy; 2025 Dominik Marcinowski
+    </footer>
+  </body>
+</html>

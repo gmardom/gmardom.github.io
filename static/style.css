@@ -1,0 +1,127 @@
+:root {
+    --content-padding: 1rem;
+    --content-max-width: 65ch;
+
+    --okl-black: 0.00 000;
+    --okl-blue:  0.15 262;
+    --okl-green: 0.13 135;
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --c-base-bg:  1.00 var(--okl-black);
+        --c-base-fg:  0.21 var(--okl-black);
+        --c-link-ext: 0.45 var(--okl-blue);
+        --c-link-int: 0.45 var(--okl-green);
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --c-base-bg:  0.21 var(--okl-black);
+        --c-base-fg:  0.90 var(--okl-black);
+        --c-link-ext: 0.75 var(--okl-blue);
+        --c-link-int: 0.75 var(--okl-green);
+    }
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: oklab(var(--c-base-bg));
+    color:            oklab(var(--c-base-fg));
+
+    font-family: "EB Garamond", serif;
+    font-weight: normal;
+    font-size: 1.3rem;
+    line-height: 1.5;
+}
+
+.content-grid,
+.content-grid > .full-width {
+    display: grid;
+    grid-template-columns:
+        [fullwidth-start]
+        minmax(var(--content-padding), 1fr)
+        [content-start]
+        min(100% - (var(--content-padding) * 2), var(--content-max-width))
+        [content-end]
+        minmax(var(--content-padding), 1fr)
+        [fullwidth-end]
+    ;
+    margin: 0;
+}
+
+.content-grid > :not(.full-width),
+.full-width   > :not(.full-width) {
+    grid-column: content;
+}
+.content-grid > .full-width {
+    grid-column: fullwidth;
+}
+
+/* General styling */
+
+@font-face {
+    font-family: "EB Garamond";
+    src: url("/static/EBGaramond-Regular.ttf");
+}
+
+
+code, pre, kbd {
+    font-family: monospace;
+    font-size: 1rem;
+}
+
+h1 { font-size: 1.5em }
+h2 { font-size: 1.3em }
+h3 { font-size: 1.1em }
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header > nav > * {
+    margin-left: .5em;
+}
+
+#copyright {
+    font-size: 0.85em;
+}
+
+/* Links */
+
+a {
+    --color: var(--c-link-ext);
+}
+a:is([href^="/"],[href*="gmardom.github.io"]) {
+    --color: var(--c-link-int);
+}
+
+a {
+    color: oklch(var(--color));
+    text-decoration: none;
+    text-underline-offset: 0.2em;
+}
+
+@media (prefers-color-scheme: dark) {
+    a:is(:hover, :focus-within) {
+        text-decoration: underline;
+    }
+}
+@media (prefers-color-scheme: light) {
+    a {
+        background-color: oklch(var(--color) / 0.1);
+        padding: 0 2px;
+    }
+    a:is(:hover, :focus-within) {
+        background-color: oklch(var(--color) / 0.2);
+    }
+}
+
+/* TODO: Minimize the usage of variables if there won't be that many.
+         This file should never exceed like 5kB */
